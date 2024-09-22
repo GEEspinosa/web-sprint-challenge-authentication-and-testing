@@ -6,7 +6,6 @@ router.post('/register', async (req, res, next) => {
   //res.end('implement register, please!');
   
   try {
-    if ()
     const credentials = req.body
     const hash = bcrypt.hashSync(credentials.password, 8)
     credentials.password = hash
