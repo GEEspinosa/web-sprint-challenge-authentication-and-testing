@@ -24,7 +24,8 @@ router.post('/login', checkCredentials, async (req, res, next) => {
     const check = await Auth.findByUsername(username)
     if (check && bcrypt.compareSync(password, check.password)){
       let token = generateToken(check)
-      res.status(200).json({message: `welcome, ${check.username}`, token: token})
+      
+      res.status(200).json({message: `welcome, ${check.username}`, token})
     } else if (check === undefined){
       res.status(401).json({message: 'Invalid credentials'})
     } else {
