@@ -27,7 +27,7 @@ router.post('/login', checkCredentials, async (req, res, next) => {
       let token = generateToken(check)
       res.status(200).json({message: `welcome, ${check.username}`, token: token})
     } else {
-      res.status(401).json({message: 'Invalid credentials!'})
+      res.status(401).json({message: 'Invalid credentials'})
     }
   } catch (err) {
     next(err)
